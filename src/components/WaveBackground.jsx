@@ -15,7 +15,7 @@ const WaveAnimation = () => {
     mountRef.current.appendChild(renderer.domElement);
 
     // Geometry Setup
-    const SEPARATION = 50, AMOUNTX = 150, AMOUNTY = 100;
+    const SEPARATION = 70, AMOUNTX = 150, AMOUNTY = 100;
     let particles = AMOUNTX * AMOUNTY;
     let positions = new Float32Array(particles * 3);
     let scales = new Float32Array(particles);
