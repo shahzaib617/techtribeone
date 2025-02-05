@@ -7,7 +7,7 @@ const WaveAnimation = () => {
 
   useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 2500;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -44,14 +44,14 @@ scales[j] = 1;
         attribute float scale;
         void main() {
           vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = scale * (300.0 / -mvPosition.z);
+          gl_PointSize = scale * (200.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
         }
       `,
       fragmentShader: `
         uniform vec3 color;
         void main() {
-          if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard;
+          if (length(gl_PointCoord - vec2(0.9)) > 0.9) discard;
           gl_FragColor = vec4(color, 1.0);
         }
       `,
@@ -80,7 +80,7 @@ scales[j] = 1;
             (Math.sin((ix + count) * 0.3) + 1) * 8 +
             (Math.sin((iy + count) * 0.5) + 1) * 8;
 
-          i += 3;
+          i += 6;
           j++;
         }
       }
